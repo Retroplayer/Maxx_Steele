@@ -1,0 +1,33 @@
+preset_decimal,preset_hex,approximate_LED_text,glyph_bytes,meaning,LCD_line_1,LCD_line_2
+0,00,Song,B6 C6 C4 F6,Song selection,Select song,
+1,01,SPEE,B6 CE 9E 9E,Individual speech sound selection,Select sound,
+2,02,SEnt,B6 9E 2A 1E,Sentence/phrase selection,Select sentence,
+3,03,StAt,B6 1E EE 1E,Status/settings menu,Robot settings,
+4,04,notE,2A 3A 1E 9E,Direct note-playing mode,Play notes,
+5,05,CLOC,9C 1C FC 9C,Clock menu/display,Clock,
+6,06,LErn,1C 9E 0A 2A,Learn mode,Learn mode,
+7,07,Prog,CE 84 C6 F6,Program mode,Program mode,
+8,08,run,00 0A 38 2A,Execute mode,Run program,
+9,09,PLAy,CE 1C EE 76,Game mode,Play game,
+10,0A,CLr,00 9C 1C 0A,Clear a program step,Clear step,
+11,0B,CLrP,9C 1C 0A CE,Entire program cleared; manual also associates with clearing song,Memory cleared,
+12,0C,FULL,8E 7C 1C 1C,Programming storage full,Memory full,
+13,0D,StAL,B6 1E EE 1C,Motor stall,Motor stalled,
+14,0E,End,00 9E 2A 7A,End of program,End of program,
+15,0F,bEg,00 3E 9E F6,Beginning of program,Start of program,
+16,10,init,20 2A 20 1E,Initialize/home command,Return to home,
+17,11,AEoF,EE 9E 3A 8E,Auto-execution on alarm disabled,Auto execution,Off
+18,12,AEon,EE 9E 3A 2A,Auto-execution on alarm enabled,Auto execution,On
+19,13,SEr,00 B6 9E 0A,Serial program execution,Execution mode,Serial
+20,14,PAr,00 CE EE 0A,Parallel program execution,Execution mode,Parallel
+21,15,Pdon,CE 7A 3A 2A,Automatic power-down enabled,Auto power-down,On
+22,16,PdoF,CE 7A 3A 8E,Automatic power-down disabled,Auto power-down,Off
+23,17,EdoF,9E 7A 3A 8E,Edit mode disabled,Edit mode,Off
+24,18,Edon,9E 7A 3A 2A,Edit mode enabled,Edit mode,On
+25,19,UCon,7C 9C 3A 2A,Wrist/arm coupling enabled,Wrist coupling,On
+26,1A,UCoF,7C 9C 3A 8E,Wrist/arm coupling disabled,Wrist coupling,Off
+27,1B,Ebon,9E 3E 3A 2A,Execute-backwards feature enabled,Run backwards,On
+28,1C,EboF,9E 3E 3A 8E,Execute-backwards feature disabled,Run backwards,Off
+29,1D,SPon,B6 CE 3A 2A,Verbal prompts enabled; not all speech enabled/disabled,Speech prompts,On
+30,1E,SPoF,B6 CE 3A 8E,Verbal prompts disabled; programmed speech remains distinct,Speech prompts,Off
+31,1F,bAd,00 3E EE 7A,Bad/invalid entry indication; precise context-dependent meaning,Invalid entry,

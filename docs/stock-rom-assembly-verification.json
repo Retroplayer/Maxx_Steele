@@ -1,0 +1,58 @@
+{
+  "assembler": "KickAssembler",
+  "assembler_version": "5.25",
+  "assembler_jar_sha256": "9592a39336e73a1db8b4a7749256d62d29b113b1c7f0f6c86ea43870ebd9ae1f",
+  "output_bytes": 8192,
+  "payload_sha256": "f232722d4773303b3e85bf3188af936735007207de8ce5ecc739bdd7348ebecd",
+  "mapped_sha256": "d6359ba53a5072ecf2e8703cecda8c63bb9a47c8f39cd07dd047089b2f2c1746",
+  "layout_assertions_passed": 46,
+  "layout_assertions_failed": 0,
+  "reference_kind": "64 KiB mapped input, compared only at E000-FFFF",
+  "reference_bytes_compared": 8192,
+  "reference_mismatches": 0,
+  "fixed_symbol_checks": {
+    "ROMStart": "0E000",
+    "ResetEntry": "0E041",
+    "NMIEntry": "0E011",
+    "IRQEntry": "0FDC5",
+    "HardwareVectors": "0FFFA",
+    "ROMEnd": "10000"
+  },
+  "binary_input_used_by_assembler": false,
+  "rebuilt_image_regressions": {
+    "head_display": {
+      "passed": true,
+      "fixed_presets": 32,
+      "BCD_inputs": 256,
+      "mixed_cases": 115,
+      "sender_byte_values_per_sender": 256
+    },
+    "speech": {
+      "passed": true,
+      "vocabulary_entries": 140,
+      "ROM_phrases": 17,
+      "RAM_phrase_slots": 16
+    },
+    "motor": {
+      "passed": true,
+      "serial_reply_values": 256,
+      "programmed_operations": 10
+    },
+    "reset_RAM": {
+      "passed": true,
+      "cold_start": true,
+      "warm_start": true
+    },
+    "reports_identical_to_original": true
+  },
+  "reconstruction_reproducibility": {
+    "generated_files_compared": 24,
+    "identical": true
+  },
+  "assembler_failure_guard_test": {
+    "real_failed_assertion_with_exit_status_zero_rejected": true
+  },
+  "installer_test": {
+    "fresh_download_checksum_verified": true
+  }
+}

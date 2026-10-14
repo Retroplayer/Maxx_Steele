@@ -1,0 +1,23 @@
+{
+  "file": "LC8100.pdf",
+  "sha256": "e646ba5b3c47eb4b8d41142595be78c8139543dc8b1a7dcb236d7228226a05b4",
+  "pages": 1,
+  "printed_page": 26,
+  "scope": "Manufacturer product overview and block diagrams; not complete functional datasheet",
+  "confirmed": {
+    "synthesis": "PARCOR",
+    "lc8100_internal_rom_bits": 32768,
+    "lc3100_rom_bits": 131072,
+    "external_rom_count_max": 16,
+    "address_path_bits": 18,
+    "indirect_word_count": 63,
+    "index_address_table_bits": 1134,
+    "lc3100_chip_select_decoder_bits": 4
+  },
+  "still_unconfirmed": [
+    "address units",
+    "address/ROM-selection bit encoding",
+    "address-load timing",
+    "LPC frame and parameter encoding"
+  ]
+}

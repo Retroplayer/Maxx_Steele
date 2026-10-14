@@ -1,0 +1,193 @@
+{
+  "mapped_rom_sha256": "d6359ba53a5072ecf2e8703cecda8c63bb9a47c8f39cd07dd047089b2f2c1746",
+  "payload_sha256": "f232722d4773303b3e85bf3188af936735007207de8ce5ecc739bdd7348ebecd",
+  "payload_bytes": 8192,
+  "instruction_count": 3362,
+  "instruction_bytes": 6880,
+  "data_bytes": 1312,
+  "code_data_coverage_bytes": 8192,
+  "opaque_binary_includes": 0,
+  "direct_control_targets_checked": 607,
+  "listing_corrections": [
+    {
+      "pc": "E556",
+      "issue": "listing opcode/position mismatch",
+      "listed": "CMP",
+      "binary": "ORA"
+    },
+    {
+      "pc": "E558",
+      "issue": "listing opcode/position mismatch",
+      "listed": "BNE",
+      "binary": "BPL"
+    },
+    {
+      "pc": "F07C",
+      "issue": "missing BEQ mnemonic recovered from binary",
+      "target": "F090"
+    }
+  ],
+  "sections": [
+    {
+      "file": "includes/00_boot.asm",
+      "start": "E000",
+      "end_exclusive": "0E0CB",
+      "instructions": 73,
+      "data_bytes": 54,
+      "description": "Copyright, reset, warm/cold initialization, and cartridge dispatch"
+    },
+    {
+      "file": "includes/10_modes_program.asm",
+      "start": "E0CB",
+      "end_exclusive": "0E54D",
+      "instructions": 542,
+      "data_bytes": 0,
+      "description": "Foreground modes, settings, LEARN storage, editing, and execution"
+    },
+    {
+      "file": "includes/11_program_helpers.asm",
+      "start": "E54D",
+      "end_exclusive": "0E617",
+      "instructions": 88,
+      "data_bytes": 28,
+      "description": "Command reversal, cursor helpers, operand entry, and limits"
+    },
+    {
+      "file": "includes/12_remote_ui.asm",
+      "start": "E617",
+      "end_exclusive": "0E6CE",
+      "instructions": 77,
+      "data_bytes": 25,
+      "description": "Remote event handling and foreground mode/submenu selection"
+    },
+    {
+      "file": "includes/20_motors.asm",
+      "start": "E6CE",
+      "end_exclusive": "0ED48",
+      "instructions": 828,
+      "data_bytes": 0,
+      "description": "Immediate/programmed motion, homing, completion, and position bookkeeping"
+    },
+    {
+      "file": "includes/21_cop_serial.asm",
+      "start": "ED48",
+      "end_exclusive": "0EDAF",
+      "instructions": 47,
+      "data_bytes": 0,
+      "description": "Head/motor byte serializer and complemented motor replies"
+    },
+    {
+      "file": "includes/22_service_power.asm",
+      "start": "EDAF",
+      "end_exclusive": "0EEEA",
+      "instructions": 145,
+      "data_bytes": 0,
+      "description": "Motor progress checks, service vector, sleep, timers, and headlamp IRQ"
+    },
+    {
+      "file": "includes/30_music.asm",
+      "start": "EEEA",
+      "end_exclusive": "0F378",
+      "instructions": 555,
+      "data_bytes": 54,
+      "description": "Tune editing/playback, tone programming, and IRQ music effects"
+    },
+    {
+      "file": "includes/40_speech.asm",
+      "start": "F378",
+      "end_exclusive": "0F64E",
+      "instructions": 179,
+      "data_bytes": 371,
+      "description": "Phrase editing, speech-port routines, IRQ service, vocabulary addresses and phrases"
+    },
+    {
+      "file": "includes/50_display.asm",
+      "start": "F64E",
+      "end_exclusive": "0F75E",
+      "instructions": 127,
+      "data_bytes": 8,
+      "description": "Program/operand formatting, four-glyph output, and packed BCD conversion"
+    },
+    {
+      "file": "includes/51_clock_settings.asm",
+      "start": "F75E",
+      "end_exclusive": "0F7F8",
+      "instructions": 76,
+      "data_bytes": 0,
+      "description": "Clock/alarm menu, adjustment commands, and auto-execution toggle"
+    },
+    {
+      "file": "includes/52_display_data.asm",
+      "start": "F7F8",
+      "end_exclusive": "0F8CE",
+      "instructions": 0,
+      "data_bytes": 214,
+      "description": "Fixed messages, command labels, format selectors, and segment glyphs"
+    },
+    {
+      "file": "includes/60_game_first.asm",
+      "start": "F8CE",
+      "end_exclusive": "0FA0C",
+      "instructions": 138,
+      "data_bytes": 0,
+      "description": "Game entry, first-game control, shared game state and prompts"
+    },
+    {
+      "file": "includes/61_random.asm",
+      "start": "FA0C",
+      "end_exclusive": "0FA1B",
+      "instructions": 10,
+      "data_bytes": 0,
+      "description": "Shared random-number helper: also called by music effects"
+    },
+    {
+      "file": "includes/62_game_helpers.asm",
+      "start": "FA1B",
+      "end_exclusive": "0FAA4",
+      "instructions": 56,
+      "data_bytes": 20,
+      "description": "Game motion/value helpers and difficulty tables"
+    },
+    {
+      "file": "includes/63_game_second.asm",
+      "start": "FAA4",
+      "end_exclusive": "0FC6F",
+      "instructions": 219,
+      "data_bytes": 0,
+      "description": "Second-game control and game arithmetic"
+    },
+    {
+      "file": "includes/70_remote_rx.asm",
+      "start": "FC6F",
+      "end_exclusive": "0FDC5",
+      "instructions": 179,
+      "data_bytes": 0,
+      "description": "IRQ receiver state machine, checksum, held keys, and event queue"
+    },
+    {
+      "file": "includes/71_interrupts.asm",
+      "start": "FDC5",
+      "end_exclusive": "0FDE6",
+      "instructions": 23,
+      "data_bytes": 0,
+      "description": "IRQ trampoline, register saves, split-table RTS dispatch and restore"
+    },
+    {
+      "file": "includes/72_tune_data.asm",
+      "start": "FDE6",
+      "end_exclusive": "0FFFA",
+      "instructions": 0,
+      "data_bytes": 532,
+      "description": "Padding, tune selection pointers, and three-voice stream data"
+    },
+    {
+      "file": "includes/99_vectors.asm",
+      "start": "FFFA",
+      "end_exclusive": "10000",
+      "instructions": 0,
+      "data_bytes": 6,
+      "description": "Hardware NMI, reset, and IRQ vectors"
+    }
+  ],
+  "limits": "Complete byte coverage and direct-target boundary checks; semantic/indirect control-flow coverage remains partial. Game removal and relocation are not performed."
+}

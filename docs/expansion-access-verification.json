@@ -1,0 +1,389 @@
+{
+  "rom_sha256": "d6359ba53a5072ecf2e8703cecda8c63bb9a47c8f39cd07dd047089b2f2c1746",
+  "listed_instruction_locations_audited": 3361,
+  "stock_tune_pointers": [
+    {
+      "index": 0,
+      "header": "FDFE",
+      "voices": [
+        "0400",
+        "FF12",
+        "FF12"
+      ]
+    },
+    {
+      "index": 1,
+      "header": "FE04",
+      "voices": [
+        "FE0A",
+        "FE16",
+        "FF12"
+      ]
+    },
+    {
+      "index": 2,
+      "header": "FE22",
+      "voices": [
+        "FE28",
+        "FE3E",
+        "FE60"
+      ]
+    },
+    {
+      "index": 3,
+      "header": "FEA2",
+      "voices": [
+        "FEA8",
+        "FECA",
+        "FEE6"
+      ]
+    },
+    {
+      "index": 4,
+      "header": "FEFC",
+      "voices": [
+        "FF02",
+        "FF12",
+        "FF12"
+      ]
+    },
+    {
+      "index": 5,
+      "header": "FF14",
+      "voices": [
+        "FF1A",
+        "FF32",
+        "FF40"
+      ]
+    },
+    {
+      "index": 6,
+      "header": "FF54",
+      "voices": [
+        "FF5A",
+        "FF12",
+        "FF12"
+      ]
+    },
+    {
+      "index": 7,
+      "header": "FFA4",
+      "voices": [
+        "FFAA",
+        "FF12",
+        "FF12"
+      ]
+    },
+    {
+      "index": 8,
+      "header": "FFB0",
+      "voices": [
+        "FFB6",
+        "FF12",
+        "FF12"
+      ]
+    }
+  ],
+  "absolute_operand_candidates": [
+    {
+      "pc": "E09F",
+      "opcode": "CMP",
+      "mode": "aby",
+      "operand": "DFFE"
+    }
+  ],
+  "indirect_instructions": [
+    {
+      "pc": "E011",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "76"
+    },
+    {
+      "pc": "E09D",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "8E"
+    },
+    {
+      "pc": "E0A9",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "8E"
+    },
+    {
+      "pc": "E0AD",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "8E"
+    },
+    {
+      "pc": "E0B3",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "8E"
+    },
+    {
+      "pc": "E151",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "94"
+    },
+    {
+      "pc": "E2BC",
+      "opcode": "CMP",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E2C8",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E2FC",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "7A"
+    },
+    {
+      "pc": "E307",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E30F",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E313",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E316",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E31A",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E335",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E33A",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E3D6",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E3DA",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E3DD",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E3E1",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E489",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "7A"
+    },
+    {
+      "pc": "E51B",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E520",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E556",
+      "opcode": "ORA",
+      "mode": "inx",
+      "pointer": "C5"
+    },
+    {
+      "pc": "E57F",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E595",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "90"
+    },
+    {
+      "pc": "EE2C",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "7A"
+    },
+    {
+      "pc": "EE2F",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "8C"
+    },
+    {
+      "pc": "EF17",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "37"
+    },
+    {
+      "pc": "F1F1",
+      "opcode": "LDA",
+      "mode": "inx",
+      "pointer": "31"
+    },
+    {
+      "pc": "F1FF",
+      "opcode": "LDA",
+      "mode": "inx",
+      "pointer": "31"
+    },
+    {
+      "pc": "F396",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "58"
+    },
+    {
+      "pc": "F3AC",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "58"
+    },
+    {
+      "pc": "F3BF",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "7A"
+    },
+    {
+      "pc": "F3D1",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "58"
+    },
+    {
+      "pc": "F3D5",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "92"
+    },
+    {
+      "pc": "F43C",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "58"
+    },
+    {
+      "pc": "F4A2",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "58"
+    },
+    {
+      "pc": "FA8D",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "7A"
+    },
+    {
+      "pc": "FD90",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "7A"
+    },
+    {
+      "pc": "FDC5",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "78"
+    }
+  ],
+  "boot_scan": {
+    "compare_Y_values": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "compare_effective_addresses": [
+      "E000",
+      "E001",
+      "E002",
+      "E003"
+    ],
+    "architectural_C000_DFFF_accesses": [],
+    "matching_header_base": "B000"
+  },
+  "synthetic_relocated_cursor": {
+    "cursor": "BF80",
+    "fetch": [
+      {
+        "pc": "E51B",
+        "kind": "read",
+        "address": "C001"
+      },
+      {
+        "pc": "E520",
+        "kind": "read",
+        "address": "C000"
+      }
+    ],
+    "store": [
+      {
+        "pc": "E335",
+        "kind": "write",
+        "address": "C000",
+        "value": "02"
+      },
+      {
+        "pc": "E33A",
+        "kind": "write",
+        "address": "C001",
+        "value": "09"
+      }
+    ]
+  },
+  "limits": "Listing identifies code locations. Modeled RAM and altered cursor demonstrate routines only. py65 does not model NMOS page-cross dummy bus reads or ASIC address decoding."
+}

@@ -1,0 +1,251 @@
+{
+  "rom_sha256": "d6359ba53a5072ecf2e8703cecda8c63bb9a47c8f39cd07dd047089b2f2c1746",
+  "reply_values_tested": 256,
+  "motions": [
+    {
+      "sent": [
+        "D5",
+        "03",
+        "95",
+        "07"
+      ],
+      "queries": [],
+      "stop": "7FFF",
+      "opcode": "00",
+      "status05": "01",
+      "status08": "00"
+    },
+    {
+      "sent": [
+        "D3",
+        "03",
+        "93",
+        "07"
+      ],
+      "queries": [],
+      "stop": "7FFF",
+      "opcode": "01",
+      "status05": "05",
+      "status08": "00"
+    },
+    {
+      "sent": [
+        "E3",
+        "03",
+        "A3",
+        "07"
+      ],
+      "queries": [],
+      "stop": "7FFF",
+      "opcode": "02",
+      "status05": "0A",
+      "status08": "00"
+    },
+    {
+      "sent": [
+        "D4",
+        "03",
+        "94",
+        "07"
+      ],
+      "queries": [],
+      "stop": "7FFF",
+      "opcode": "03",
+      "status05": "04",
+      "status08": "00"
+    },
+    {
+      "sent": [
+        "92",
+        "07"
+      ],
+      "queries": [],
+      "stop": "7FFF",
+      "opcode": "04",
+      "status05": "10",
+      "status08": "00"
+    },
+    {
+      "sent": [
+        "A2",
+        "07"
+      ],
+      "queries": [],
+      "stop": "7FFF",
+      "opcode": "05",
+      "status05": "20",
+      "status08": "00"
+    },
+    {
+      "sent": [
+        "91",
+        "07"
+      ],
+      "queries": [],
+      "stop": "7FFF",
+      "opcode": "06",
+      "status05": "60",
+      "status08": "00"
+    },
+    {
+      "sent": [
+        "A1",
+        "07"
+      ],
+      "queries": [],
+      "stop": "7FFF",
+      "opcode": "07",
+      "status05": "90",
+      "status08": "00"
+    },
+    {
+      "sent": [
+        "A0",
+        "07"
+      ],
+      "queries": [],
+      "stop": "7FFF",
+      "opcode": "08",
+      "status05": "00",
+      "status08": "08"
+    },
+    {
+      "sent": [
+        "70"
+      ],
+      "queries": [],
+      "stop": "7FFF",
+      "opcode": "09",
+      "status05": "00",
+      "status08": "04"
+    }
+  ],
+  "variants": [
+    {
+      "sent": [
+        "E5",
+        "03",
+        "A5",
+        "07"
+      ],
+      "queries": [],
+      "stop": "7FFF"
+    },
+    {
+      "sent": [
+        "E4",
+        "03",
+        "A4",
+        "07"
+      ],
+      "queries": [],
+      "stop": "7FFF"
+    },
+    {
+      "sent": [
+        "50"
+      ],
+      "queries": [],
+      "stop": "7FFF"
+    }
+  ],
+  "coupling": [
+    {
+      "opcode": 6,
+      "flag": 0,
+      "status05": "60"
+    },
+    {
+      "opcode": 6,
+      "flag": 1,
+      "status05": "40"
+    },
+    {
+      "opcode": 7,
+      "flag": 0,
+      "status05": "90"
+    },
+    {
+      "opcode": 7,
+      "flag": 1,
+      "status05": "80"
+    }
+  ],
+  "polls": [
+    {
+      "sent": [
+        "B1",
+        "B0",
+        "84",
+        "82",
+        "81",
+        "80"
+      ],
+      "queries": [
+        "B1",
+        "B0",
+        "84",
+        "82",
+        "81",
+        "80"
+      ],
+      "stop": "EE2F"
+    },
+    {
+      "sent": [
+        "B1",
+        "B0",
+        "84"
+      ],
+      "queries": [
+        "B1",
+        "B0",
+        "84"
+      ],
+      "stop": "EE1C"
+    }
+  ],
+  "completions": [
+    {
+      "sent": [
+        "44"
+      ],
+      "queries": [
+        "44"
+      ],
+      "stop": "7FFF",
+      "position": 18
+    },
+    {
+      "sent": [
+        "42"
+      ],
+      "queries": [
+        "42"
+      ],
+      "stop": "7FFF",
+      "position": 18
+    },
+    {
+      "sent": [
+        "41"
+      ],
+      "queries": [
+        "41"
+      ],
+      "stop": "7FFF",
+      "position": 18
+    },
+    {
+      "sent": [
+        "40"
+      ],
+      "queries": [
+        "40"
+      ],
+      "stop": "7FFF",
+      "position": 22
+    }
+  ],
+  "model": "Synthetic clock and COP replies; ready bit high; no COP firmware emulation."
+}

@@ -1,0 +1,655 @@
+{
+  "archive_sha256": "96758a4e9d687be97cb9c2928b00cd3bdf8afed569943243481c721926704738",
+  "rom_sha256": "d6359ba53a5072ecf2e8703cecda8c63bb9a47c8f39cd07dd047089b2f2c1746",
+  "scope": "Real receiver-output samples; original ROM decoder replay; transmitter jack unmeasured",
+  "replay_tick_us": 528,
+  "replay_tick_note": "Chosen accepted replay interval, not a measured hardware IRQ period",
+  "captures": [
+    {
+      "file": "0.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 1,
+      "frames": 8,
+      "code_counts": {
+        "41": 7,
+        "A1": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "00"
+        },
+        {
+          "time_us": 218592,
+          "event": "20"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "1.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 2,
+      "frames": 9,
+      "code_counts": {
+        "42": 8,
+        "A2": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "01"
+        },
+        {
+          "time_us": 247632,
+          "event": "21"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "2.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 3,
+      "frames": 9,
+      "code_counts": {
+        "83": 8,
+        "E3": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "02"
+        },
+        {
+          "time_us": 247632,
+          "event": "22"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "3.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 4,
+      "frames": 8,
+      "code_counts": {
+        "44": 7,
+        "A4": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "03"
+        },
+        {
+          "time_us": 218592,
+          "event": "23"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "4.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 5,
+      "frames": 7,
+      "code_counts": {
+        "85": 6,
+        "E5": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "04"
+        },
+        {
+          "time_us": 190080,
+          "event": "24"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "5.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 6,
+      "frames": 9,
+      "code_counts": {
+        "86": 8,
+        "E6": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "05"
+        },
+        {
+          "time_us": 248160,
+          "event": "25"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "6.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 7,
+      "frames": 8,
+      "code_counts": {
+        "C7": 7,
+        "27": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "06"
+        },
+        {
+          "time_us": 219120,
+          "event": "26"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "7.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 8,
+      "frames": 12,
+      "code_counts": {
+        "48": 11,
+        "A8": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "07"
+        },
+        {
+          "time_us": 334752,
+          "event": "27"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "8.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 9,
+      "frames": 7,
+      "code_counts": {
+        "89": 6,
+        "E9": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "08"
+        },
+        {
+          "time_us": 190080,
+          "event": "28"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "9.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 10,
+      "frames": 17,
+      "code_counts": {
+        "8A": 16,
+        "EA": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "09"
+        },
+        {
+          "time_us": 45408,
+          "event": "29"
+        },
+        {
+          "time_us": 72864,
+          "event": "09"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": {
+        "start_us": 490328,
+        "partial_symbols": "110010",
+        "reason": "Capture ends before a complete frame and idle"
+      }
+    },
+    {
+      "file": "B.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 12,
+      "frames": 11,
+      "code_counts": {
+        "8C": 9,
+        "EC": 2
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "0B"
+        },
+        {
+          "time_us": 45408,
+          "event": "2B"
+        },
+        {
+          "time_us": 72864,
+          "event": "0B"
+        },
+        {
+          "time_us": 304656,
+          "event": "2B"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "CLEAR.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 15,
+      "frames": 10,
+      "code_counts": {
+        "0F": 7,
+        "6F": 3
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "0E"
+        },
+        {
+          "time_us": 74448,
+          "event": "2E"
+        },
+        {
+          "time_us": 126720,
+          "event": "0E"
+        },
+        {
+          "time_us": 155760,
+          "event": "2E"
+        },
+        {
+          "time_us": 183216,
+          "event": "0E"
+        },
+        {
+          "time_us": 298848,
+          "event": "2E"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "CLOCK.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 18,
+      "frames": 7,
+      "code_counts": {
+        "92": 5,
+        "F2": 2
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "11"
+        },
+        {
+          "time_us": 45936,
+          "event": "31"
+        },
+        {
+          "time_us": 72864,
+          "event": "11"
+        },
+        {
+          "time_us": 189024,
+          "event": "31"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "ENTER.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 16,
+      "frames": 15,
+      "code_counts": {
+        "50": 14,
+        "B0": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "0F"
+        },
+        {
+          "time_us": 421872,
+          "event": "2F"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "EXECUTE.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 24,
+      "frames": 12,
+      "code_counts": {
+        "98": 11,
+        "F8": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "17"
+        },
+        {
+          "time_us": 334752,
+          "event": "37"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "GAME.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 21,
+      "frames": 17,
+      "code_counts": {
+        "D5": 16,
+        "35": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "14"
+        },
+        {
+          "time_us": 479952,
+          "event": "34"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "LEARN.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 23,
+      "frames": 12,
+      "code_counts": {
+        "17": 11,
+        "77": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "16"
+        },
+        {
+          "time_us": 335280,
+          "event": "36"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "MOTION.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 20,
+      "frames": 15,
+      "code_counts": {
+        "94": 11,
+        "F4": 4
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "13"
+        },
+        {
+          "time_us": 45936,
+          "event": "33"
+        },
+        {
+          "time_us": 104016,
+          "event": "13"
+        },
+        {
+          "time_us": 133056,
+          "event": "33"
+        },
+        {
+          "time_us": 160512,
+          "event": "13"
+        },
+        {
+          "time_us": 189552,
+          "event": "33"
+        },
+        {
+          "time_us": 235488,
+          "event": "13"
+        },
+        {
+          "time_us": 264528,
+          "event": "33"
+        },
+        {
+          "time_us": 310464,
+          "event": "13"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": {
+        "start_us": 496474,
+        "partial_symbols": "11",
+        "reason": "Capture ends before a complete frame and idle"
+      }
+    },
+    {
+      "file": "OCTAVE.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 14,
+      "frames": 13,
+      "code_counts": {
+        "CE": 12,
+        "2E": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "0D"
+        },
+        {
+          "time_us": 363792,
+          "event": "2D"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "PROGRAM.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 22,
+      "frames": 13,
+      "code_counts": {
+        "D6": 12,
+        "36": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "15"
+        },
+        {
+          "time_us": 364320,
+          "event": "35"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "SONG.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 17,
+      "frames": 13,
+      "code_counts": {
+        "91": 12,
+        "F1": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "10"
+        },
+        {
+          "time_us": 364320,
+          "event": "30"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "SPEECH.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 19,
+      "frames": 15,
+      "code_counts": {
+        "D3": 14,
+        "33": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "12"
+        },
+        {
+          "time_us": 421872,
+          "event": "32"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    },
+    {
+      "file": "WAIT.sr",
+      "sample_rate_hz": 1000000,
+      "samples": 500000,
+      "key_id": 13,
+      "frames": 14,
+      "code_counts": {
+        "CD": 13,
+        "2D": 1
+      },
+      "events": [
+        {
+          "time_us": 16368,
+          "event": "0C"
+        },
+        {
+          "time_us": 392832,
+          "event": "2C"
+        }
+      ],
+      "framing_checksum_errors": 0,
+      "active_slot_errors": 0,
+      "incomplete_tail": null
+    }
+  ],
+  "summary": {
+    "capture_files": 23,
+    "decoded_frames": 261,
+    "rom_frames_matching_edge_decode": 261,
+    "framing_checksum_errors": 0,
+    "active_slot_errors": 0,
+    "symbol_period_us_median": 1577.5,
+    "normalized_symbol_period_us_min": 1459.0,
+    "normalized_symbol_period_us_max": 1763.0,
+    "held_repeat_interval_us_median": 28928,
+    "held_repeat_interval_us_min": 28872,
+    "held_repeat_interval_us_max": 28984,
+    "missing_keys": [
+      "Lamp",
+      "Power / Stop"
+    ],
+    "captures_with_incomplete_tail": [
+      "9.sr",
+      "MOTION.sr"
+    ]
+  },
+  "receiver_wiring_note_verbatim": "Green GND\r\nBlue Signal\r\nGray 5V"
+}

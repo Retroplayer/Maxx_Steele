@@ -1,0 +1,692 @@
+{
+  "rom_sha256": "d6359ba53a5072ecf2e8703cecda8c63bb9a47c8f39cd07dd047089b2f2c1746",
+  "listed_instruction_locations_audited": 3361,
+  "access_site_count": 43,
+  "registers": [
+    {
+      "address": "1000",
+      "read_sites": [
+        "E9F4",
+        "EA00",
+        "EC1B",
+        "ED5F",
+        "ED6C",
+        "ED82",
+        "ED8C",
+        "ED91",
+        "EDA0"
+      ],
+      "write_sites": [
+        "EEE2"
+      ],
+      "read_modify_write_sites": []
+    },
+    {
+      "address": "1200",
+      "read_sites": [
+        "F483",
+        "F91D",
+        "F963"
+      ],
+      "write_sites": [
+        "E047",
+        "E080",
+        "E907",
+        "E91D",
+        "ED69",
+        "ED73",
+        "ED89",
+        "ED99",
+        "EDA7"
+      ],
+      "read_modify_write_sites": []
+    },
+    {
+      "address": "1400",
+      "read_sites": [
+        "FC96",
+        "FCB5",
+        "FCFD"
+      ],
+      "write_sites": [
+        "F3F9",
+        "F3FE",
+        "F401",
+        "F467",
+        "F46C",
+        "F471"
+      ],
+      "read_modify_write_sites": []
+    },
+    {
+      "address": "1600",
+      "read_sites": [
+        "EE36",
+        "EEA2"
+      ],
+      "write_sites": [
+        "F21D",
+        "F4BF",
+        "F4D3"
+      ],
+      "read_modify_write_sites": []
+    },
+    {
+      "address": "1C00",
+      "read_sites": [],
+      "write_sites": [
+        "F24A",
+        "F252",
+        "F25A",
+        "F263"
+      ],
+      "read_modify_write_sites": []
+    },
+    {
+      "address": "1E00",
+      "read_sites": [],
+      "write_sites": [
+        "E017",
+        "E044",
+        "EE7B"
+      ],
+      "read_modify_write_sites": []
+    }
+  ],
+  "accesses": [
+    {
+      "pc": "E017",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1E00",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "E044",
+      "opcode": "STX",
+      "mode": "abs",
+      "address": "1E00",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "E047",
+      "opcode": "STX",
+      "mode": "abs",
+      "address": "1200",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "E080",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1200",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "E907",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1200",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "E91D",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1200",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "E9F4",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1000",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "EA00",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1000",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "EC1B",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1000",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "ED5F",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1000",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "ED69",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1200",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "ED6C",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1000",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "ED73",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1200",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "ED82",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1000",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "ED89",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1200",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "ED8C",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1000",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "ED91",
+      "opcode": "LDA",
+      "mode": "abs",
+      "address": "1000",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "ED99",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1200",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "EDA0",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1000",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "EDA7",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1200",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "EE36",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1600",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "EE7B",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1E00",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "EEA2",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1600",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "EEE2",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1000",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F21D",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1600",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F24A",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1C00",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F252",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1C00",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F25A",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1C00",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F263",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1C00",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F3F9",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1400",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F3FE",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1400",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F401",
+      "opcode": "STY",
+      "mode": "abs",
+      "address": "1400",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F467",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1400",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F46C",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1400",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F471",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1400",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F483",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1200",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F4BF",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1600",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F4D3",
+      "opcode": "STA",
+      "mode": "abs",
+      "address": "1600",
+      "access": "write",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F91D",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1200",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "F963",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1200",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "FC96",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1400",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "FCB5",
+      "opcode": "LDA",
+      "mode": "abs",
+      "address": "1400",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    },
+    {
+      "pc": "FCFD",
+      "opcode": "BIT",
+      "mode": "abs",
+      "address": "1400",
+      "access": "read",
+      "cpu_data_width_bits": 8
+    }
+  ],
+  "indexed_bases_below_1000_that_could_cross_into_io": [],
+  "indirect_instructions_for_manual_pointer_review": [
+    {
+      "pc": "E011",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "76"
+    },
+    {
+      "pc": "E09D",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "8E"
+    },
+    {
+      "pc": "E0A9",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "8E"
+    },
+    {
+      "pc": "E0AD",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "8E"
+    },
+    {
+      "pc": "E0B3",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "8E"
+    },
+    {
+      "pc": "E151",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "94"
+    },
+    {
+      "pc": "E2BC",
+      "opcode": "CMP",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E2C8",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E2FC",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "7A"
+    },
+    {
+      "pc": "E307",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E30F",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E313",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E316",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E31A",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E335",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E33A",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E3D6",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E3DA",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E3DD",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E3E1",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "24"
+    },
+    {
+      "pc": "E489",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "7A"
+    },
+    {
+      "pc": "E51B",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E520",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E556",
+      "opcode": "ORA",
+      "mode": "inx",
+      "pointer": "C5"
+    },
+    {
+      "pc": "E57F",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "0F"
+    },
+    {
+      "pc": "E595",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "90"
+    },
+    {
+      "pc": "EE2C",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "7A"
+    },
+    {
+      "pc": "EE2F",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "8C"
+    },
+    {
+      "pc": "EF17",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "37"
+    },
+    {
+      "pc": "F1F1",
+      "opcode": "LDA",
+      "mode": "inx",
+      "pointer": "31"
+    },
+    {
+      "pc": "F1FF",
+      "opcode": "LDA",
+      "mode": "inx",
+      "pointer": "31"
+    },
+    {
+      "pc": "F396",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "58"
+    },
+    {
+      "pc": "F3AC",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "58"
+    },
+    {
+      "pc": "F3BF",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "7A"
+    },
+    {
+      "pc": "F3D1",
+      "opcode": "STA",
+      "mode": "iny",
+      "pointer": "58"
+    },
+    {
+      "pc": "F3D5",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "92"
+    },
+    {
+      "pc": "F43C",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "58"
+    },
+    {
+      "pc": "F4A2",
+      "opcode": "LDA",
+      "mode": "iny",
+      "pointer": "58"
+    },
+    {
+      "pc": "FA8D",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "7A"
+    },
+    {
+      "pc": "FD90",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "7A"
+    },
+    {
+      "pc": "FDC5",
+      "opcode": "JMP",
+      "mode": "ind",
+      "pointer": "78"
+    }
+  ],
+  "limits": "Static instruction-site counts, not dynamic access counts. No ASIC decode/alias or internal register width inference. Listing identifies code; binary supplies opcodes/operands."
+}

@@ -1,0 +1,218 @@
+{
+  "rom_sha256": "d6359ba53a5072ecf2e8703cecda8c63bb9a47c8f39cd07dd047089b2f2c1746",
+  "scope": "Synthetic input replay of original FC6F decoder; no physical timing validation",
+  "checks": {
+    "key_presses": 25,
+    "held_repeats": 24,
+    "matched_releases": 24,
+    "checksum_values": 256,
+    "valid_checksums": 64,
+    "invalid_checksums": 192,
+    "bad_guard_rejected": true,
+    "timeout_at_200_calls": true,
+    "two_active_keys": true,
+    "third_active_key_stop": true
+  },
+  "keys": [
+    {
+      "key": "0 / Drive left",
+      "key_id": 1,
+      "press_byte": "41",
+      "release_byte": "A1",
+      "press_symbols": "10101000101",
+      "event": "00"
+    },
+    {
+      "key": "1 / Drive forward",
+      "key_id": 2,
+      "press_byte": "42",
+      "release_byte": "A2",
+      "press_symbols": "10101000110",
+      "event": "01"
+    },
+    {
+      "key": "2 / Drive reverse",
+      "key_id": 3,
+      "press_byte": "83",
+      "release_byte": "E3",
+      "press_symbols": "11001000111",
+      "event": "02"
+    },
+    {
+      "key": "3 / Drive right",
+      "key_id": 4,
+      "press_byte": "44",
+      "release_byte": "A4",
+      "press_symbols": "10101001000",
+      "event": "03"
+    },
+    {
+      "key": "4 / Wrist up",
+      "key_id": 5,
+      "press_byte": "85",
+      "release_byte": "E5",
+      "press_symbols": "11001001001",
+      "event": "04"
+    },
+    {
+      "key": "5 / Wrist down",
+      "key_id": 6,
+      "press_byte": "86",
+      "release_byte": "E6",
+      "press_symbols": "11001001010",
+      "event": "05"
+    },
+    {
+      "key": "6 / Arms up",
+      "key_id": 7,
+      "press_byte": "C7",
+      "release_byte": "27",
+      "press_symbols": "11101001011",
+      "event": "06"
+    },
+    {
+      "key": "7 / Arms down",
+      "key_id": 8,
+      "press_byte": "48",
+      "release_byte": "A8",
+      "press_symbols": "10101010100",
+      "event": "07"
+    },
+    {
+      "key": "8 / Claw rotate",
+      "key_id": 9,
+      "press_byte": "89",
+      "release_byte": "E9",
+      "press_symbols": "11001010101",
+      "event": "08"
+    },
+    {
+      "key": "9 / Claw open-close",
+      "key_id": 10,
+      "press_byte": "8A",
+      "release_byte": "EA",
+      "press_symbols": "11001010110",
+      "event": "09"
+    },
+    {
+      "key": "Lamp",
+      "key_id": 11,
+      "press_byte": "CB",
+      "release_byte": "2B",
+      "press_symbols": "11101010111",
+      "event": "0A"
+    },
+    {
+      "key": "Home",
+      "key_id": 12,
+      "press_byte": "8C",
+      "release_byte": "EC",
+      "press_symbols": "11001011000",
+      "event": "0B"
+    },
+    {
+      "key": "Wait / Note rest",
+      "key_id": 13,
+      "press_byte": "CD",
+      "release_byte": "2D",
+      "press_symbols": "11101011001",
+      "event": "0C"
+    },
+    {
+      "key": "Shift octave",
+      "key_id": 14,
+      "press_byte": "CE",
+      "release_byte": "2E",
+      "press_symbols": "11101011010",
+      "event": "0D"
+    },
+    {
+      "key": "Clear",
+      "key_id": 15,
+      "press_byte": "0F",
+      "release_byte": "6F",
+      "press_symbols": "10001011011",
+      "event": "0E"
+    },
+    {
+      "key": "Enter",
+      "key_id": 16,
+      "press_byte": "50",
+      "release_byte": "B0",
+      "press_symbols": "10101100100",
+      "event": "0F"
+    },
+    {
+      "key": "Song / Notes",
+      "key_id": 17,
+      "press_byte": "91",
+      "release_byte": "F1",
+      "press_symbols": "11001100101",
+      "event": "10"
+    },
+    {
+      "key": "Clock / Status",
+      "key_id": 18,
+      "press_byte": "92",
+      "release_byte": "F2",
+      "press_symbols": "11001100110",
+      "event": "11"
+    },
+    {
+      "key": "Speech",
+      "key_id": 19,
+      "press_byte": "D3",
+      "release_byte": "33",
+      "press_symbols": "11101100111",
+      "event": "12"
+    },
+    {
+      "key": "Motion / Back step",
+      "key_id": 20,
+      "press_byte": "94",
+      "release_byte": "F4",
+      "press_symbols": "11001101000",
+      "event": "13"
+    },
+    {
+      "key": "Game",
+      "key_id": 21,
+      "press_byte": "D5",
+      "release_byte": "35",
+      "press_symbols": "11101101001",
+      "event": "14"
+    },
+    {
+      "key": "Program",
+      "key_id": 22,
+      "press_byte": "D6",
+      "release_byte": "36",
+      "press_symbols": "11101101010",
+      "event": "15"
+    },
+    {
+      "key": "Learn",
+      "key_id": 23,
+      "press_byte": "17",
+      "release_byte": "77",
+      "press_symbols": "10001101011",
+      "event": "16"
+    },
+    {
+      "key": "Execute",
+      "key_id": 24,
+      "press_byte": "98",
+      "release_byte": "F8",
+      "press_symbols": "11001110100",
+      "event": "17"
+    },
+    {
+      "key": "Power / Stop",
+      "key_id": 25,
+      "press_byte": "D9",
+      "release_byte": "39",
+      "press_symbols": "11101110101",
+      "event": "nonlocal stop jump"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+address,label,description,known_JSR_target
+E011,NMIEntry,Hardware NMI trampoline through writable RAM vector $0076/$0077.,False
+E014,NMIDefault,"Preserve A, write zero to $1E00, and RTI. Hardware side effect remains unresolved.",False
+E041,ResetEntry,"SEI/CLD, fixed page-1 stack, marker test, cold/warm initialization, then cartridge search.",False
+E04F,CheckWarmStartMarker,Compare all 17 copyright bytes against RAM $0100-$0110.,False
+E05A,ColdStartInitialize,Clear zero page; fill user phrase storage with $FF. Do not clear the full command area.,False
+E06F,InitializeCommonState,"Runs on warm and cold reset; reinstall marker, vectors, remote ages, and music state.",False
+E090,ScanCartridge,"Probe $2000,$3000,...,$B000 for four signature bytes; no $C000 probe.",False
+E09D,CompareCartridgeSignature,"Y=5..2: compare candidate bytes with CopyrightText-2,Y ($E003..$E000).",False
+E0B3,DispatchCartridge,Jump through the header-supplied pointer; this is not a JSR and has no RTS return.,False
+E0B6,ContinueStockStartup,"Stock continuation: head command, motor auxiliary status, CLI, spoken greeting.",False
+E0CB,MainModeEntry,Normal foreground entry. Initializes immediate-mode state and resets the stack later.,False
+E0D1,EnterForegroundMode,Store mode and dispatch to its user interface; this path is not a callable API.,False
+E161,ImmediateLearnCommandLoop,Read and classify keys in immediate/LEARN operation.,False
+E20E,ReadStatusOption,Settings keys 0..6; index=19+2*key selects paired display presets.,False
+E2A2,RecordLearnMotion,LEARN-mode motion bookkeeping before storing a command.,False
+E2B1,UpdateLearnOperand,Search earlier learned operation and replace its operand when appropriate.,False
+E2CB,InsertCurrentCommandIfLearning,Guarded insertion entry: mode must be LEARN before falling into insertion.,True
+E2D0,InsertProgramCommand,"Find the end marker, enforce biased cursor $037E boundary, shift pairs, and insert.",False
+E2D6,PrepareProgramInsertion,Copy biased cursor to temporary pointer and scan/shift command pairs.,True
+E346,EditProgramLoop,Program-mode editing loop; reads keys and supports clear/backstep/execute.,False
+E3A9,ClearProgramStep,Clear/delete editing path. Uses program and temporary cursors.,True
+E3EC,WaitForKeyOrTimer,Set $2A=$F4; return when remote mailbox is nonempty or the IRQ timer reaches zero.,True
+E3F9,ProgramBackstep,"Move to an earlier command, subject to the beginning boundary.",True
+E409,ExecuteSelectedStep,Fetch/display selected command and wait for the relevant key.,True
+E41A,AdvanceProgramCursor,"Increment biased 16-bit program cursor by two, carrying into its high byte.",True
+E423,ClearEntireProgram,"Reset cursor, place $FF end marker, show clear-program preset.",True
+E434,ExecuteProgram,"Execute stored command pairs, handling reverse direction, delays, music and speech.",False
+E504,WaitForRobotActivities,"Service robot until motor, speech, and music activity clears; stall/service paths can redirect control.",True
+E519,FetchProgramCommand,"Read operand at cursor+$81, opcode at cursor+$80 into $13/$11; A returns opcode.",True
+E525,TransformReverseCommand,Reverse-execution transformation for motion and open/close operands.,True
+E555,RetreatProgramCursor,Carry clear at beginning ($0180); otherwise subtract two and return carry set. Listing labels repaired from binary.,True
+E574,ResetCursorUnlessEditing,Feature bit 6 controls whether the existing cursor/program is retained.,True
+E57B,MarkProgramEnd,Write $FF at biased cursor+$80.,True
+E582,ResetProgramCursor,Initialize biased cursor to USER_PROGRAM-$80; reset execution direction state.,True
+E595,ReadOperandViaVector,"Indirect command-input hook, initially ReadOperandDefault.",True
+E598,ReadOperandDefault,Numeric operand entry and per-command bounds; carry indicates acceptance.,False
+E600,WaitForSpecificRemoteEvent,A selects event to wait for; consumes mailbox events and waits again on mismatch.,True
+E60D,WaitForRemoteKey,"Wait for a foreground key below $20, servicing robot and mode handling.",True
+E617,ReadRemoteAndHandleModes,Remote UI dispatch; may enter another mode instead of returning.,True
+E6A4,PollRobotAndRemote,"Run motor/service polling, wheel-speed adjustment, then consume remote mailbox.",True
+E6CE,HandleImmediateMotion,"Immediate/LEARN operation handling, motor status and direction commands.",True
+E905,StopAllMotors,"Stop command depends on coupling; delay, reconcile four positions, then handshake.",True
+E93D,StopWheels,"Send wheel-stop byte, delay, reconcile position, clear wheel status/speed.",True
+E959,RampWheelSpeed,Immediate/LEARN speed change after timer expiry; resends direction and speed parameter.,True
+E99D,StartForwardWheels,Set wheel direction/status and fall through to speed-command transmission.,True
+E9B3,SendMotorSpeed,"Send A, then speed-state+3. Uses common motor serializer.",True
+E9BE,StartReverseWheels,Set reverse wheel state and send the reverse speed command.,True
+E9D0,WaitForMotorCompletion,Poll B0 until zero and B1 until claw activity bits clear; runs service paths.,True
+E9E8,MotorSettlingDelay,Set $2A=$18 and wait for interrupt timer service to decrement it to zero.,True
+E9F1,MotorHandshakeService,Motor handshake/status path using $1000 bit 7 and command $C1.,False
+E9FE,ExecuteMotorCommand,"A=operation, $13=operand. Busy/limit checks and hardware handshake precede dispatch.",True
+EA5E,MotorOperationDispatch,"Clear rejected bit, ignore negative operation, and skip zero-count moves 0..8.",False
+EA6F,CheckMotorLeft,Operation 0: left turn; selected direction depends on saved wheel direction.,False
+EA9A,CheckMotorForward,Operation 1: forward movement; skip/reject if wheel group is busy.,False
+EAB3,CheckMotorReverse,Operation 2: reverse movement.,False
+EAC5,SendMotorCommandAndOperand,"A=command; send it, then tail-call sender with $13 operand.",False
+EACD,CheckMotorRight,Operation 3: right turn; command depends on saved direction.,False
+EAF7,CheckMotorWristUp,Operation 4: wrist-up; activity mask $30 and inhibit bit 6.,False
+EB12,CheckMotorWristDown,Operation 5: wrist-down; activity mask $30 and inhibit bit 7.,False
+EB2E,CheckMotorArmsUp,Operation 6: arms-up; coupling flag can add wrist-down activity.,False
+EB5B,CheckMotorArmsDown,Operation 7: arms-down; coupling flag can add wrist-up activity.,False
+EB85,CheckMotorClawRotate,Operation 8: claw rotation with supplied count.,False
+EB98,CheckMotorClawOpenClose,Operation 9: one-byte open/close command selected by operand.,False
+EBC3,CheckMotorHeadlamp,Operation 10: operand selects headlamp on/off state.,False
+EBCA,SetHeadlampOff,Clear headlamp state $71; actual output is applied by IRQ headlamp service.,True
+EBCE,SetHeadlampOn,Set headlamp state $71=$40.,True
+EBDC,HomeRobot,"Homing sequence: 60,62; wait; 70,61; wait; initialize counters; C0/C1 handshake.",True
+EC1B,WaitMotorHandshakeHigh,Return when $1000 bit 7 is high; otherwise send $C1 and retry.,False
+EC29,UpdateSelectedPosition,Dispatch by X to a counter read and direction-dependent position update.,False
+EC35,ReadApplyWheelCounter,A is supplied request (84 ordinary / 44 completion); apply count to wheel position.,True
+EC59,ReadApplyWristCounter,A is supplied request (82 / 42); update wrist position and saved count.,True
+EC7E,ReadApplyArmCounter,A is supplied request (81 / 41); update arm position and saved count.,True
+ECA1,ReadApplyClawCounter,A is supplied request (80 / 40); reduce count and position modulo $55 (85).,True
+ECBF,RejectMotorOperation,Set operation-status bit 7 and return.,False
+ECC5,FinalizeWheelPosition,"Undo prior contribution, read completion counter 44, then clear saved counters.",True
+ECD4,FinalizeWristPosition,"Completion-counter path for wrist, request 42.",True
+ECE3,FinalizeArmPosition,"Completion-counter path for arm, request 41.",True
+ECF2,FinalizeClawPosition,"Completion-counter path for claw, request 40.",True
+ED01,UndoWheelCount,Undo the previous counter contribution using saved wheel direction.,True
+ED16,UndoWristCount,Undo prior wrist count using direction bit 4.,True
+ED2C,UndoArmCount,Undo prior arm count using direction bit 6.,True
+ED40,UndoClawCount,Subtract prior claw count before replacing it.,True
+ED48,BeginHeadDisplayFrame,"Send E3, then F3. Fall through into head-byte transmitter.",True
+ED4F,SendHeadByte,A=byte; MSB first. Uses $5E/$5F/$60; head data phases are $1A/$1B.,True
+ED55,SendMotorByte,"A=byte; shares serializer, motor data phases $1C/$1D.",True
+ED59,SerialTransmitSetup,"Shared serializer. Poll timing bit 6, shift outgoing bit, restore idle $F8.",False
+ED5F,WaitSerialClockHigh,Wait until BIT $1000 sets V (bit 6 high).,False
+ED6C,WaitSerialClockLow,Wait until BIT $1000 clears V (bit 6 low).,False
+ED7B,ReadMotorReply,"Send A request; receive eight MSB-first bits from $1000 bit 0, then complement result.",True
+ED82,WaitReplyClockHigh,Receive-phase timing wait for bit 6 high.,False
+ED8C,WaitReplyClockLow,Receive-phase timing wait for bit 6 low.,False
+EDAF,PollMotorProgressAndService,When timer allows: B1/B0 then active counters. Equal consecutive count enters stall path.,True
+EE1C,HandleMotorStall,"Stop motors, show StAL, increment diagnostic counter, sound error, return through mode vector.",False
+EE2F,ServiceViaVector,"Indirect service hook, initially ServiceDefault.",True
+EE32,ServiceDefault,"Alarm response, inactivity power-down, and battery warning foreground service.",False
+EE78,EnterSleep,"SEI; write $02 to system control, send head sleep command, then loop. Wake mechanism is hardware-dependent.",False
+EE95,TimerIRQ,IRQ task: periodic/inactivity/motor timers and battery status. Returns through IRQRestore.,False
+EED0,HeadlampIRQ,IRQ task: headlamp shadow/divider and output at $1000. Returns through IRQRestore.,False
+EEEA,ClearMusicEffectsAndInitialize,Clear effect mask then continue to voice initialization.,True
+EEEE,InitializeMusicVoices,Reset voice state and mute channels; called by reset before cartridge dispatch.,True
+EF01,SelectTune,X=tune index 0..8; load six split stream-pointer bytes and activate voice state.,True
+EF2E,PlayFeedbackTone3C,"Choose feedback pitch/control $3C, then common short-tone path.",True
+EF32,PlayFeedbackTone3A,Choose feedback pitch/control $3A.,True
+EF3A,PlayFeedbackTone36,Choose feedback pitch/control $36.,True
+EF3C,PlayFeedbackToneCommon,A=$0A duration; Y supplied pitch/control; share error-tone launch path.,True
+EF40,PlayErrorTone,Start short foreground feedback/error tone unless music activity blocks it.,True
+EF55,ClearUserTune,Clear $0400-$04FF and reset tune editor offset/octave state.,True
+EF63,WaitForTune,Wait for voice-0 active/state byte to become zero; depends on IRQ music service.,True
+EF68,EditUserTune,User-song editor/key loop.,False
+EF76,LearnUserTune,Select song/learn-song path and show Song prompt.,False
+EFE0,ProgramUserTune,"Program-song path, note entry and clear/replay operations.",False
+F0B8,RefreshTuneDisplayIfChanged,"Preserve A; compare note-base and duration selection, refresh tune display on change.",True
+F0D0,DisplayTuneEditor,"Preserve A/X/Y; display note offset, pitch and duration, with octave point.",True
+F151,FindDurationIndex,Find duration encoding by comparing the biased table; table index zero overlaps the RTS byte.,True
+F164,SetTuneNote,Update programmable note data and editor state.,True
+F1D9,MusicIRQ,"IRQ task for slots 0,1,2; stream duration/note fetch or effect RTS dispatch.",False
+F21C,ProgramTone,First writes raw note to lamps; compute period and emit four encoded writes to $1C00.,True
+F267,StopMusicVoice0,Choose voice zero then disable effect/mute it.,True
+F26B,StopMusicVoice1,Choose voice one then disable effect/mute it.,True
+F26F,StopMusicVoice2,Choose voice two then disable effect/mute it.,True
+F271,DisableSelectedMusicEffect,Clear selected voice effect mask then fall through to mute.,True
+F278,MuteSelectedMusicVoice,Write channel-control|$0F to tone port.,True
+F27F,SoundWriteDelay,Tiny call/NOP timing delay between sound-port writes. Preserve exact instruction layout.,True
+F282,SoundWriteDelayInner,Two NOPs then RTS; cycle timing is part of stock sound programming.,True
+F285,WaitForKeyPressAndRelease,Consume a press then corresponding release while running service dispatch.,True
+F2C4,ConfigureOscillatingEffect,Music-effect entry; sets voice and handler/timing parameters.,False
+F2CC,ConfigureSweepEffect,Music-effect setup used by games and other tone paths.,True
+F2D4,ConfigureRandomEffect,Configure the random-effect handler with supplied parameter.,True
+F2DC,ConfigureDecayEffect,Configure effect decay/timing.,True
+F2E6,ConfigureMusicEffectCommon,Install split RTS handler pointer and set effect-active mask.,False
+F307,MusicDecayEffectIRQ,Music-effect callback entered through RTS table; returns through IRQ restore paths.,False
+F326,MusicSweepEffectIRQ,Effect callback and shared effect-step update.,False
+F331,AdvanceMusicEffectStep,Update effect counters and value/increment; call context can alter return stack.,True
+F348,MusicRandomEffectIRQ,Calls NextRandom. This dependency prevents deleting all game-adjacent code wholesale.,False
+F358,MusicOscillatingEffectIRQ,Reverse increment at effect endpoints.,False
+F369,MusicRepeatedSweepIRQ,Effect repetition/counter path.,False
+F378,EditSpeechPhrase,Select user phrase slot and write vocabulary codes/terminator into $0500 page.,False
+F3D5,SpeakVocabularyViaVector,"Writable low-level vocabulary hook, initially SpeakVocabularyDefault.",True
+F3D8,SpeakVocabularyDefault,"X=vocabulary code; 140 is pause. Send external speech address via $1400, not CPU memory mapping.",False
+F40F,SpeakPhrase,"X=phrase index; 0..15 use RAM slots, 16..32 scan ROM $FF-terminated token sequences.",True
+F44B,ExecuteSpeechCommand,Dispatch stored sound/sentence operation using current opcode and operand.,True
+F453,SpeakDirectSound,Prepare direct-sound state and invoke vocabulary dispatch.,True
+F460,SendSpeechByte,"Send high nibble first, then leave low nibble in Y for caller.",True
+F465,SendSpeechNibble,"A=nibble; write data, strobe bit 4 high, then low.",True
+F475,SpeakPromptUnlessDisabled,Feature bit 1 suppresses verbal prompts; programmed speech is a separate path.,True
+F47E,WaitForSpeech,Wait for speech state to clear; playback depends on IRQ service.,True
+F483,SpeechIRQ,"IRQ slot 7: busy/ready handling, phrase advancement, software pause, lamp updates.",False
+F64E,DisplayProgramPosition,"Derive step number from biased cursor, convert to BCD, and send numeric display.",True
+F668,DisplayOperandPrompt,Prompt-format entry with leading/placeholder behavior.,True
+F66C,DisplayCommandOperand,"Format $11/$13; special FE/FF selects beginning/end presets, 0B selects init.",True
+F684,DisplayPreset,X=0..31; send four glyphs from split preset tables and commit.,True
+F6A4,DisplayMixedCommand,Command-specific label glyphs combined with decimal operand digits.,False
+F6D2,DisplayNumberBlanked,Numeric formatting with leading blanks.,False
+F6D6,DisplayNumberZeroFilled,Display packed BCD $24/$25 with leading zeroes.,False
+F6D8,DisplayNumberCommon,Shared four-digit formatter; X controls leading-zero suppression.,False
+F737,OperandToBCD,Load current operand then convert to packed BCD.,True
+F739,ByteToBCD,A=unsigned byte; result in $24/$25. Temporarily enters decimal mode and clears it before RTS.,True
+F75E,ClockInvalidKey,Sound feedback for invalid clock-menu input then retry.,False
+F761,ClockMenu,Keys adjust/view time/alarm and toggle auto-execution. Head COP maintains clock state.,False
+F7D9,AdjustClockRepeatedly,"A=view select, X=adjust command; $16 controls repeat acceleration, $2A supplies delay.",True
+F8CE,GamesEntry,"Game-mode entry; homes robot, prompts selection, then dispatches first/second game.",False
+F9DE,ClearGameState,Clear $A6-$AD with X=7..0. $AD is used despite no direct operand.,True
+F9E8,ChooseGameDifficulty,Prompt for difficulty then use numeric selection helper.,True
+F9EA,PromptForSmallNumber,Prompt/operand loop; game/difficulty interpretation depends on caller.,True
+FA01,DisplayGameValue,Copy game value $A7/$A8 to shared display scratch.,True
+FA0C,NextRandom,Shared 16-bit shift state $A4/$A5. SEI then unconditional CLI: does not preserve caller interrupt mask.,True
+FA1B,GameWaitForMotion,Poll/complete game motion and select subsequent game action.,True
+FA42,Routine_FA42,Semantics not yet fully classified,True
+FA5E,Routine_FA5E,Semantics not yet fully classified,True
+FA60,Routine_FA60,Semantics not yet fully classified,True
+FA67,Routine_FA67,Semantics not yet fully classified,True
+FAA4,SecondGameEntry,Second game control; semantic details remain partly unresolved.,False
+FB8C,Routine_FB8C,Semantics not yet fully classified,True
+FBB1,Routine_FBB1,Semantics not yet fully classified,True
+FBB5,Routine_FBB5,Semantics not yet fully classified,True
+FBBF,Routine_FBBF,Semantics not yet fully classified,True
+FBCE,Routine_FBCE,Semantics not yet fully classified,True
+FBD6,Routine_FBD6,Semantics not yet fully classified,True
+FBED,Routine_FBED,Semantics not yet fully classified,True
+FC00,Routine_FC00,Semantics not yet fully classified,True
+FC12,Routine_FC12,Semantics not yet fully classified,True
+FC21,Routine_FC21,Semantics not yet fully classified,True
+FC25,Routine_FC25,Semantics not yet fully classified,True
+FC34,Routine_FC34,Semantics not yet fully classified,True
+FC6F,RemoteService,"Runs every IRQ. Software serial decoder on $1400 bit 7, held-key aging and event delivery.",True
+FD93,EnqueueRemoteEvent,"Convert one-based event to queue code, store ring entry, decrement/wrap producer.",True
+FDAD,PublishRemoteEvent,Publish queued event if foreground mailbox is empty.,False
+FDC5,IRQEntry,Hardware IRQ trampoline through writable RAM vector $0078/$0079.,False
+FDC8,IRQDefault,"Save A/X/Y, run receiver, select one of eight tasks, dispatch by pushing target-minus-one and RTS.",False
+FDE0,IRQRestore,Restore Y/X/A from default IRQ stack frame and RTI.,False

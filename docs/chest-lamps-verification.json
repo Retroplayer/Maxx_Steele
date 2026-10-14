@@ -1,0 +1,256 @@
+{
+  "rom_sha256": "d6359ba53a5072ecf2e8703cecda8c63bb9a47c8f39cd07dd047089b2f2c1746",
+  "scope": "Original instruction traces and emulator-only no-write variants; no hardware or ROM image patched",
+  "writers": [
+    {
+      "cpu_address": "F21D",
+      "raw_8k_offset": "121D",
+      "original": "8D 00 16",
+      "no_write_candidate": "EA EA EA"
+    },
+    {
+      "cpu_address": "F4BF",
+      "raw_8k_offset": "14BF",
+      "original": "8D 00 16",
+      "no_write_candidate": "EA EA EA"
+    },
+    {
+      "cpu_address": "F4D3",
+      "raw_8k_offset": "14D3",
+      "original": "8D 00 16",
+      "no_write_candidate": "EA EA EA"
+    }
+  ],
+  "summary": {
+    "speech_seed_cases": 256,
+    "music_cases": 75,
+    "completion_cases": 2,
+    "speech_update_divider": 16,
+    "initial_zero_divider_first_update_calls": 256,
+    "music_output_preserved_in_no_write_model": true,
+    "speech_ram_and_flags_preserved_in_no_write_model": true
+  },
+  "initial_sequence": [
+    "00",
+    "01",
+    "03",
+    "07",
+    "0F",
+    "1F",
+    "3F",
+    "7E",
+    "FD",
+    "FB",
+    "F7",
+    "EF",
+    "DF",
+    "BE",
+    "7C",
+    "F9",
+    "F3",
+    "E7",
+    "CF",
+    "9E",
+    "3D",
+    "7A",
+    "F5",
+    "EB"
+  ],
+  "seed_examples": [
+    {
+      "seed": 0,
+      "next": 1,
+      "writes": [
+        {
+          "pc": "F4BF",
+          "port": "1600",
+          "value": "00"
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "next": 3,
+      "writes": [
+        {
+          "pc": "F4BF",
+          "port": "1600",
+          "value": "01"
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "next": 5,
+      "writes": [
+        {
+          "pc": "F4BF",
+          "port": "1600",
+          "value": "02"
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "next": 7,
+      "writes": [
+        {
+          "pc": "F4BF",
+          "port": "1600",
+          "value": "03"
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "next": 9,
+      "writes": [
+        {
+          "pc": "F4BF",
+          "port": "1600",
+          "value": "04"
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "next": 11,
+      "writes": [
+        {
+          "pc": "F4BF",
+          "port": "1600",
+          "value": "05"
+        }
+      ]
+    },
+    {
+      "seed": 6,
+      "next": 13,
+      "writes": [
+        {
+          "pc": "F4BF",
+          "port": "1600",
+          "value": "06"
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "next": 15,
+      "writes": [
+        {
+          "pc": "F4BF",
+          "port": "1600",
+          "value": "07"
+        }
+      ]
+    }
+  ],
+  "music_examples": [
+    {
+      "note": 0,
+      "writes": [
+        {
+          "pc": "F21D",
+          "port": "1600",
+          "value": "00"
+        },
+        {
+          "pc": "F263",
+          "port": "1C00",
+          "value": "9F"
+        }
+      ]
+    },
+    {
+      "note": 1,
+      "writes": [
+        {
+          "pc": "F21D",
+          "port": "1600",
+          "value": "01"
+        },
+        {
+          "pc": "F24A",
+          "port": "1C00",
+          "value": "8B"
+        },
+        {
+          "pc": "F252",
+          "port": "1C00",
+          "value": "0B"
+        },
+        {
+          "pc": "F25A",
+          "port": "1C00",
+          "value": "3B"
+        },
+        {
+          "pc": "F263",
+          "port": "1C00",
+          "value": "90"
+        }
+      ]
+    },
+    {
+      "note": 12,
+      "writes": [
+        {
+          "pc": "F21D",
+          "port": "1600",
+          "value": "0C"
+        },
+        {
+          "pc": "F24A",
+          "port": "1C00",
+          "value": "8A"
+        },
+        {
+          "pc": "F252",
+          "port": "1C00",
+          "value": "0A"
+        },
+        {
+          "pc": "F25A",
+          "port": "1C00",
+          "value": "1F"
+        },
+        {
+          "pc": "F263",
+          "port": "1C00",
+          "value": "90"
+        }
+      ]
+    },
+    {
+      "note": 24,
+      "writes": [
+        {
+          "pc": "F21D",
+          "port": "1600",
+          "value": "18"
+        },
+        {
+          "pc": "F24A",
+          "port": "1C00",
+          "value": "8D"
+        },
+        {
+          "pc": "F252",
+          "port": "1C00",
+          "value": "0D"
+        },
+        {
+          "pc": "F25A",
+          "port": "1C00",
+          "value": "0F"
+        },
+        {
+          "pc": "F263",
+          "port": "1C00",
+          "value": "90"
+        }
+      ]
+    }
+  ]
+}
