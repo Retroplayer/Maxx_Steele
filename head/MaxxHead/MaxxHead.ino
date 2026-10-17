@@ -3,6 +3,7 @@
 #include <U8g2lib.h>
 #include "Config.h"
 #include "Protocol.h"
+#include "RTCClock.h"
 
 // Confirm controller against the purchased module. 2.08-inch panels are not
 // interchangeable merely because they have the same size and pixel count.
@@ -38,6 +39,26 @@ bool readRTC(uint8_t reg, uint8_t *out, uint8_t length) {
 bool writeRTC(uint8_t reg, const uint8_t *data, uint8_t length) {
   Wire.beginTransmission(0x68); Wire.write(reg); Wire.write(data, length);
   return Wire.endTransmission() == 0;
+}
+struct RTCBus {
+  bool read(uint8_t reg, uint8_t *data, uint8_t count) { return readRTC(reg,data,count); }
+  bool write(uint8_t reg, const uint8_t *data, uint8_t count) { return writeRTC(reg,data,count); }
+} rtcBus;
+bool ensureRTCClock() {
+  bool previousPresence = rtcPresent, previousValidity = rtcValid;
+  RTCClock::Result result = RTCClock::ensure(rtcBus);
+  rtcPresent = result != RTCClock::Missing;
+  rtcValid = result == RTCClock::Ready || result == RTCClock::Initialized;
+  if (result == RTCClock::Initialized) {
+    hourNow = minuteNow = 0;
+    protocol.state.alarmEnabled = false;
+    protocol.state.alarmHour = 7; protocol.state.alarmMinute = 0;
+    alarmAsserted = false;
+    Serial.println("RTC initialized to 00:00; hidden historical date placeholder installed");
+    dirty = true;
+  }
+  if (rtcPresent != previousPresence || rtcValid != previousValidity) dirty = true;
+  return rtcValid;
 }
 void setAlarmOutput(bool active) {
   alarmAsserted = active;
@@ -167,6 +188,7 @@ void render() {
   if (s.view == HeadState::Sleeping) setPower(false);
 }
 void pollRTC() {
+  if (!ensureRTCClock()) return;
   uint8_t time[3], status;
   bool ok = readRTC(0, time, 3) && readRTC(0x0f, &status, 1);
   rtcPresent = ok;
@@ -184,13 +206,13 @@ void pollRTC() {
 void setTimeFromUSB(const char *digits) {
   unsigned year, month, day, hour, minute, second;
   if (sscanf(digits, "%4u%2u%2u%2u%2u%2u", &year, &month, &day, &hour, &minute, &second) != 6) return;
-  const uint8_t monthDays[] = {31,28,31,30,31,30,31,31,30,31,30,31};
   if (year < 2000 || year > 2099 || month < 1 || month > 12 || day < 1 ||
-      day > unsigned(monthDays[month-1] + (month == 2 && year % 4 == 0)) ||
+      day > RTCClock::daysInMonth(year,month) ||
       hour > 23 || minute > 59 || second > 59) {
     Serial.println("Invalid timestamp"); return;
   }
-  uint8_t time[] = {bcd(second), bcd(minute), bcd(hour), 1, bcd(day), bcd(month), bcd(year-2000)};
+  uint8_t time[] = {bcd(second), bcd(minute), bcd(hour), 1, bcd(day),
+                    RTCClock::monthRegister(year,month), bcd(year%100)};
   uint8_t status;
   if (writeRTC(0, time, 7) && readRTC(0x0f, &status, 1)) {
     status &= ~0x80; writeRTC(0x0f, &status, 1);
@@ -234,6 +256,7 @@ void setup() {
   Serial.begin(115200);
   pinMode(DATA_PIN, INPUT); pinMode(CLOCK_PIN, INPUT); pinMode(ALARM_PIN, INPUT);
   Wire.setSDA(RTC_SDA); Wire.setSCL(RTC_SCL); Wire.begin();
+  ensureRTCClock();
   uint8_t alarm[4], control;
   rtcPresent = readRTC(7, alarm, 4) && readRTC(0x0e, &control, 1);
   if (rtcPresent) {

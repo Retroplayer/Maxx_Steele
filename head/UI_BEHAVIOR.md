@@ -87,4 +87,5 @@ prototype's display and RTC views on hardware.
 
 This change addresses entry UI only. It does not resolve the outstanding direct
 DS3231-to-ALARMB wiring/low-power redesign, other head clock/discrete connections,
-12-hour/PM presentation, or invalid-RTC initialization listed in FUNCTION_AUDIT.
+and 12-hour/PM presentation listed in FUNCTION_AUDIT. Invalid-RTC initialization
+is now covered separately in [RTC_INITIALIZATION.md](RTC_INITIALIZATION.md).

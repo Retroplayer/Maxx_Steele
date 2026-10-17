@@ -1,5 +1,11 @@
 # Head replacement completeness audit
 
+**RTC update:** invalid-clock initialization now installs the owner's hidden
+Christmas 1984/midnight default and clears OSF after successful writes. Remote
+time-setting no longer depends on USB initialization. See RTC_INITIALIZATION.md;
+date and weekday display are deliberately excluded. Hardware verification and
+the direct RTC alarm / low-power wiring work remain outstanding.
+
 **UI update:** persistent context and dynamic command/music/game interpretation
 are now implemented; see [UI_BEHAVIOR.md](UI_BEHAVIOR.md) for exact coverage,
 heuristics, tests, and remaining ambiguities. The earlier audit below describes

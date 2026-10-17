@@ -8,7 +8,10 @@ are required. No COP firmware is emulated.
 
 See [FUNCTION_AUDIT.md](FUNCTION_AUDIT.md) for the checked command coverage and
 remaining compatibility gaps, including 12-hour/PM display, colon blinking,
-remote-only initialization of an invalid RTC, and physical sleep/wake wiring.
+and physical sleep/wake wiring.
+Invalid-clock initialization is now implemented: see
+[RTC_INITIALIZATION.md](RTC_INITIALIZATION.md). The hidden default calendar is
+December 25, 1984 at midnight; no date or weekday is displayed.
 The [context-aware UI notes](UI_BEHAVIOR.md) describe persistent mode labels,
 large entry feedback, music and game-score interpretation, and the USB `u` demo.
 
@@ -68,7 +71,8 @@ The sketch polls the DS3231 alarm flag; INT/SQW wiring is not required yet.
 1. With robot inputs disconnected, check OLED output and USB console.
 2. Send `n` repeatedly to cycle through all 32 translated stock messages.
 3. Send `TYYYYMMDDhhmmss` to set the RTC, e.g. `T20261014213000`.
-   An RTC with its oscillator-stop flag set displays `--:--` until initialized.
+   A responsive RTC with its oscillator-stop flag set initializes to midnight
+   automatically. USB date/time setting is optional, not needed for remote use.
 4. `c` selects clock, `a` alarm view, `s` sleep, and `w` wake. With default
    configuration sleep changes only the display; it does not switch power.
 5. Connect translated robot data/clock. Configure sampling mode, inversion, and
