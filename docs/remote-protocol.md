@@ -238,7 +238,11 @@ the archive hash, per-key code counts, event times, and incomplete tails.
 
 - The group fields and the proposed 6×6 scan matrix are not supported by this
   decoder. It receives key identifiers with checksum and release information;
-  the remote's actual internal matrix needs its own hardware or firmware evidence.
+  the owner subsequently supplied a **6-row × 4-column matrix**, lettered PCB
+  traces, and a COP411 controller schematic. See the
+  [AVR replacement wiring table](../remote-avr/README.md#proposed-wiring).
+  Those establish keyboard wiring; transmitter-to-receiver polarity remains
+  unmeasured.
 - Several reference binary strings disagree with their hexadecimal labels.
   For example, the string for key 6 is $617, not the listed $605.
 - The reference claims $E6B5 contains a simple $00–$18 progression. Actual bytes
