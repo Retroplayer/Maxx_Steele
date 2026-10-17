@@ -9,6 +9,8 @@ are required. No COP firmware is emulated.
 See [FUNCTION_AUDIT.md](FUNCTION_AUDIT.md) for the checked command coverage and
 remaining compatibility gaps, including 12-hour/PM display, colon blinking,
 remote-only initialization of an invalid RTC, and physical sleep/wake wiring.
+The [context-aware UI notes](UI_BEHAVIOR.md) describe persistent mode labels,
+large entry feedback, music and game-score interpretation, and the USB `u` demo.
 
 ## Build
 
@@ -18,10 +20,9 @@ The environment used to create this prototype has no Arduino toolchain, so the
 complete sketch has not been compiled or flashed. The portable receiver/parser
 has been compiled and tested using the command below.
 
-The default display constructor is `U8G2_SH1122_256X64_F_4W_SW_SPI`.
-**SH1122 is a provisional controller choice, not established by the product
-photo.** Confirm the purchased module's controller and change the constructor
-if necessary. U8g2 supplies a monochrome framebuffer even on supported grayscale
+The display constructor is `U8G2_SH1122_256X64_F_4W_SW_SPI`.
+The owner confirmed the purchased 2.08-inch OLED uses SH1122 and demonstrated
+the previous sketch's display operation. U8g2 supplies a monochrome framebuffer even on supported grayscale
 controllers. Software SPI avoids board-specific hardware SPI pin restrictions
 and leaves a future hardware SPI peripheral available for reception.
 
@@ -86,8 +87,9 @@ The sketch polls the DS3231 alarm flag; INT/SQW wiring is not required yet.
   mistaken for commands, even when they equal E3, F3, E2, or sleep commands.
 - All 32 exact stock presets map to readable text generated from
   `docs/head-messages.csv`. Settings show their On/Off or Serial/Parallel detail.
-- Unknown frames draw four seven-segment glyphs with decimal points. Dynamic
-  numeric/command decoding is intentionally left for the next iteration.
+- Recognized dynamic command/value frames show readable action labels and
+  large values. Mode context persists in the footer; music and game formats are
+  interpreted where possible. Unknown frames preserve the original segments.
 - E0/E1 choose clock/alarm. E7/E8 advance clock minutes/hours without carrying
   into the other field. E9/EA advance alarm minutes/hours modulo 60/24.
 - EB enables daily Alarm 1; EE disables/acknowledges and clears alarm flags.
@@ -118,7 +120,7 @@ The original head's other clock/reset/discrete connections are not reproduced
 here, so do not remove the original board and assume this is a full replacement.
 RTC I/O failures are not yet integrated into a complete fault-handling policy.
 
-E-paper is not implemented in this first sketch. Its renderer must wait until
+E-paper is not implemented in this sketch. Its renderer must wait until
 the update is physically complete before calling `setPower(false)`. Custom
-cartridge text and automatic dynamic command translation are also future work;
+cartridge text and vocabulary-word text expansion are also future work;
 no unverified extension bytes have been reserved on the legacy bus.

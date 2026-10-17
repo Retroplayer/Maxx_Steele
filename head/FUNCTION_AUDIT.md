@@ -1,5 +1,10 @@
 # Head replacement completeness audit
 
+**UI update:** persistent context and dynamic command/music/game interpretation
+are now implemented; see [UI_BEHAVIOR.md](UI_BEHAVIOR.md) for exact coverage,
+heuristics, tests, and remaining ambiguities. The earlier audit below describes
+the baseline prototype. Its RTC, power, and physical-interface gaps remain open.
+
 Compared the prototype against all named SendHeadByte/BeginHeadDisplayFrame
 callers in the reconstructed stock assembly, the existing CPU trace tool,
 the owner manual's time/alarm instructions (PDF pages 9–10), and the schematic
@@ -66,10 +71,10 @@ it has not been verified on Maxx. No audible alarm needs adding to the head.
 
 ## Display enhancements versus compatibility
 
-Raw numeric, mixed command/operand, game, music-note, sharp, and octave displays
-can render through the generic segment fallback. They are **not yet expanded
-into descriptive text**. All segment bits/decimal points are retained, but
-translation currently covers only the 32 exact stock preset frames.
+Dynamic mixed-command entries, program positions, music-note/shifted-octave
+formats, and inferred game score layouts now have context-aware presentation.
+Unknown or ambiguous frames retain a neutral numeric/segment fallback. See
+UI_BEHAVIOR.md; not all possible dynamic frames have unique semantic meanings.
 
 Custom cartridge text and e-paper rendering are not implemented. They are
 future enhancements, not unhandled stock commands. The purchased SH1122 OLED

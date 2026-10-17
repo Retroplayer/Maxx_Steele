@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <string.h>
 #include "Messages.h"
+#include "DisplayUI.h"
 
 // No Arduino dependencies: the same parser is exercised by host tests.
 struct HeadState {
@@ -10,6 +11,7 @@ struct HeadState {
   int message = -1;
   bool alarmEnabled = false;
   uint8_t alarmHour = 7, alarmMinute = 0;
+  DisplayUI ui;
 };
 
 struct HeadEvents {
@@ -22,7 +24,7 @@ class HeadProtocol {
  public:
   HeadState state;
   explicit HeadProtocol(HeadEvents &events) : events(events) {}
-  void resetFraming() { phase = Idle; count = 0; }
+  void resetFraming() { phase = Idle; count = 0; state.ui.reset(); }
   void feed(uint8_t byte) {
     // Glyphs may equal commands, including E3/F3/E2. Never decode them here.
     if (phase == Glyphs) {
@@ -38,6 +40,7 @@ class HeadProtocol {
         for (unsigned i = 0; i < sizeof(messages) / sizeof(messages[0]); ++i)
           if (!memcmp(pending, messages[i].glyphs, 4)) { state.message = i; break; }
         state.view = state.message >= 0 ? HeadState::MessageView : HeadState::Raw;
+        state.ui.frame(state.glyphs, state.message);
         events.changed();
         return;
       }
@@ -61,6 +64,7 @@ class HeadProtocol {
       default: return;
     }
     events.command(byte);
+    state.ui.command(byte);
     events.changed();
   }
  private:

@@ -95,6 +95,12 @@ void centered(const char *text, int baseline) {
   int width = screen.getStrWidth(text);
   screen.drawStr(max(0, (256 - width) / 2), baseline, text);
 }
+void largeEntry(const char *text) {
+  screen.setFont(u8g2_font_helvB18_tr);
+  if (screen.getStrWidth(text) > 250) screen.setFont(u8g2_font_helvB14_tr);
+  if (screen.getStrWidth(text) > 250) screen.setFont(u8g2_font_helvB10_tr);
+  centered(text, 39);
+}
 void rawGlyph(uint8_t glyph, int x) {
   const uint8_t masks[] = {0x80, 0x40, 0x20, 0x10, 8, 4, 2};
   const int boxes[][4] = {{5,2,24,3},{29,5,3,16},{29,25,3,16},
@@ -116,26 +122,43 @@ void render() {
       if (s.view == HeadState::Clock && !rtcValid) snprintf(text, sizeof text, "--:--");
       else snprintf(text, sizeof text, "%02u:%02u", s.view == HeadState::Clock ? hourNow : s.alarmHour,
                      s.view == HeadState::Clock ? minuteNow : s.alarmMinute);
-      centered(text, 46); break;
+      centered(text, 42); break;
     case HeadState::Sleeping:
       centered("MAXX IS SLEEPING", 22);
       screen.setFont(u8g2_font_6x12_tr);
       if (s.alarmEnabled) snprintf(text, sizeof text, "Wake alarm %02u:%02u", s.alarmHour, s.alarmMinute);
       else snprintf(text, sizeof text, "Alarm off");
       centered(text, 42); break;
-    case HeadState::MessageView: {
-      const Message &m = messages[s.message];
-      centered(m.title, 25);
-      screen.setFont(u8g2_font_6x12_tr); centered(m.detail, 43); break;
-    }
+    case HeadState::MessageView:
     case HeadState::Raw:
-      for (int i = 0; i < 4; ++i) rawGlyph(s.glyphs[i], 34 + i * 48);
+      if (s.ui.layout == DisplayUI::Segments) {
+        for (int i = 0; i < 4; ++i) rawGlyph(s.glyphs[i], 34 + i * 48);
+      } else if (s.ui.layout == DisplayUI::Scores) {
+        screen.setFont(u8g2_font_6x12_tr);
+        screen.drawStr(38, 12, "YOU"); screen.drawStr(170, 12, "MAXX");
+        snprintf(text, sizeof text, "%02d", s.ui.playerScore);
+        screen.setFont(u8g2_font_logisoso24_tn); screen.drawStr(34, 42, text);
+        snprintf(text, sizeof text, "%02d", s.ui.maxxScore);
+        screen.drawStr(169, 42, text);
+      } else if (s.ui.layout == DisplayUI::Entry) {
+        screen.setFont(u8g2_font_6x12_tr); centered(s.ui.title, 12);
+        largeEntry(s.ui.value);
+      } else {
+        centered(s.ui.title, 25);
+        screen.setFont(u8g2_font_6x12_tr); centered(s.ui.value, 43);
+      }
       break;
   }
   screen.drawHLine(0, 49, 256);
   screen.setFont(u8g2_font_6x12_tr);
-  snprintf(text, sizeof text, "%s   ALARM %s%s", !rtcPresent ? "NO RTC" : rtcValid ? "MAXX" : "SET RTC",
-           s.alarmEnabled ? "ON" : "OFF", alarmAsserted ? " *" : "");
+  if (s.view == HeadState::Raw || s.view == HeadState::MessageView)
+    snprintf(text, sizeof text, "%s", s.ui.footer);
+  else if (s.view == HeadState::Sleeping) {
+    if (rtcValid) snprintf(text, sizeof text, "TIME %02u:%02u", hourNow, minuteNow);
+    else snprintf(text, sizeof text, "%s", rtcPresent ? "SET RTC" : "NO RTC");
+  } else
+    snprintf(text, sizeof text, "%s | ALARM %s%s", !rtcPresent ? "NO RTC" : rtcValid ? "CLOCK" : "SET RTC",
+             s.alarmEnabled ? "ON" : "OFF", alarmAsserted ? " *" : "");
   screen.drawStr(2, 62, text);
   screen.sendBuffer();
   dirty = false;
@@ -174,6 +197,39 @@ void setTimeFromUSB(const char *digits) {
     Serial.println("RTC set"); dirty = true;
   } else Serial.println("RTC write failed");
 }
+void demoEntryStep() {
+  // Exercise the real parser without remote hardware. Each 'u' advances one
+  // observed-format frame, including prompts, entries, and game scores.
+  static uint8_t step = 0;
+  static const uint8_t frames[][4] = {
+    {0xce,0x84,0xc6,0xf6}, // Prog
+    {0,0xfc,0xfc,0xfc}, // step 000
+    {0x8e,0x10,0x10,0x10}, // F___
+    {0x8e,0,0,0x60}, // F  1
+    {0x8e,0,0x60,0xda}, // F 12
+    {0,0xfc,0xfc,0x60}, // step 001
+    {0xce,0xb6,0x10,0x10}, // PS__
+    {0xce,0xb6,0,0xda}, // PS 2
+    {0xb6,0x10,0x10,0x10}, // S___
+    {0xb6,0,0xbe,0xb6}, // S 65
+    {0x8e,0x7c,0x1c,0x1c}, // FULL: preserve context
+    {0xce,0x84,0xc6,0xf6}, // Prog
+    {0xb6,0xc6,0xc4,0xf6}, // Song
+    {0xfc,0xfc,0x8e,0xf2}, // 00F3
+    {0xce,0x1c,0xee,0x76}, // PLAy
+    {0,0,0,0x10}, // game choice prompt
+    {0,0,0,0x60}, // choice 1
+    {0,0,0,0x10}, // difficulty prompt
+    {0,0,0,0xda}, // difficulty 2
+    {0xfc,0xfc,0xfc,0xfc}, // scores 00 / 00
+    {0xfc,0xf2,0xfc,0xe0}, // scores 03 / 07
+    {0,0,0,0xda}, // intermission level: neutral game value
+  };
+  protocol.feed(0xe3); protocol.feed(0xf3);
+  for (uint8_t glyph : frames[step]) protocol.feed(glyph);
+  protocol.feed(0xe2);
+  step = (step + 1) % (sizeof frames / sizeof frames[0]);
+}
 void setup() {
   Serial.begin(115200);
   pinMode(DATA_PIN, INPUT); pinMode(CLOCK_PIN, INPUT); pinMode(ALARM_PIN, INPUT);
@@ -193,6 +249,7 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(CLOCK_PIN), clockEdge, rising ? RISING : FALLING);
   Serial.println("Maxx head: n=next message, c=clock, a=alarm, s=sleep, w=wake, r=resync");
   Serial.println("Set RTC: TYYYYMMDDhhmmss (24-hour time)");
+  Serial.println("u=next contextual-entry demo step (22 frames)");
 }
 void loop() {
   noInterrupts();
@@ -218,6 +275,7 @@ void loop() {
         }
       } else { timestampCount = -1; Serial.println("Timestamp cancelled"); }
     } else switch (input) {
+      case 'u': demoEntryStep(); break;
       case 'n':
         protocol.feed(0xe3); protocol.feed(0xf3);
         for (uint8_t glyph : messages[demo].glyphs) protocol.feed(glyph);
