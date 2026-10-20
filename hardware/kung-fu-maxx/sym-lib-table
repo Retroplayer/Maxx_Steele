@@ -1,0 +1,3 @@
+(sym_lib_table
+ (lib (name "MaxxKFFSymbols")(type "KiCad")(uri "${KIPRJMOD}/MaxxKFFSymbols.kicad_sym")(options "")(descr "Self-contained Maxx KFF symbols"))
+)

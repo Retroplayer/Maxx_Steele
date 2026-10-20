@@ -1,0 +1,3 @@
+(fp_lib_table
+ (lib (name "MaxxKFF")(type "KiCad")(uri "${KIPRJMOD}/MaxxKFF.pretty")(options "")(descr "Embedded original KFF footprints plus Maxx edge connector"))
+)

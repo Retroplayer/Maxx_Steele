@@ -1,0 +1,4 @@
+(version 1)
+(rule "Plated cartridge fingers intentionally approach board edge"
+  (condition "A.memberOfFootprint('U1')")
+  (constraint edge_clearance (min 0mm)))

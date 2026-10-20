@@ -1,0 +1,16 @@
+{
+  "copper_layers": 4,
+  "retained_core_net_connectivity": "matches original",
+  "pcb_schematic_pad_nets": "match",
+  "edge_contacts": 44,
+  "used_contacts": 29,
+  "reserved_contacts_isolated": 15,
+  "pitch_mm": 2.54,
+  "component_placement": "matches original within 2 um rounding tolerance",
+  "pin_12": "WRB -> PA0",
+  "pin_14": "OEB -> PA8",
+  "pin_39": "VBAT isolated",
+  "pin_41": "VSW -> regulator input",
+  "physical_insertion_orientation_verified": false,
+  "hardware_tested": false
+}
