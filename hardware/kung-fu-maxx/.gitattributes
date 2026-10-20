@@ -1,0 +1,2 @@
+# Preserve the original upstream CAD files byte for byte.
+upstream/** -whitespace

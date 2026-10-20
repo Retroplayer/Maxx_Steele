@@ -1,0 +1,3 @@
+# Preserve objcopy Intel HEX line endings and classify raw images as binary.
+*.hex -text whitespace=cr-at-eol
+*.bin binary

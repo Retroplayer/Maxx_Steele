@@ -1,0 +1,14 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-20T01:43:35+0000",
+    "kicad_version": "9.0.2",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/b7392422-650f-43a9-9b70-3236151393b3",
+            "violations": []
+        }
+    ],
+    "source": "KungFuMaxx.kicad_sch"
+}
