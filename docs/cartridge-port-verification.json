@@ -1,0 +1,25 @@
+{
+  "rom_sha256": "d6359ba53a5072ecf2e8703cecda8c63bb9a47c8f39cd07dd047089b2f2c1746",
+  "NMI": {
+    "hardware_vector": "E011",
+    "RAM_vector": "0076",
+    "default_handler": "E014",
+    "executed_pcs": [
+      "E011",
+      "E014",
+      "E015",
+      "E017",
+      "E01A",
+      "E01B"
+    ],
+    "write_1E00": "00",
+    "registers_and_stack_restored": true
+  },
+  "demo_cartridge": {
+    "header": "13 A0 28 63 29 20",
+    "mapped_base": "A000",
+    "dispatch_entry": "A013",
+    "original_probe_executed": true
+  },
+  "limits": "Firmware only; connector labels, ASIC decoding, and electrical timing are not emulated."
+}

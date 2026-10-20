@@ -1,0 +1,68 @@
+group,pin_reading,signal,confidence
+CPU address,61,A15,readable
+CPU address,62,A14,readable
+CPU address,63,A13,readable
+CPU address,64,A12,readable
+CPU address,65,A11,tentative
+CPU address,66,A10,readable
+CPU address,58,A9,tentative
+CPU address,60,A8,readable
+CPU address,68,A7,tentative
+CPU address,67,A6,readable
+CPU address,2,A5,readable
+CPU address,4,A4,readable
+CPU address,7,A3,readable
+CPU address,9,A2,readable
+CPU address,13,A1,readable
+CPU address,5 or 15,A0,ambiguous numeral
+CPU data,14,D7,readable
+CPU data,16,D6,readable
+CPU data,18,D5,readable
+CPU data,20,D4,readable
+CPU data,22,D3,readable
+CPU data,21,D2,readable
+CPU data,19,D1,readable
+CPU data,17,D0,readable
+CPU bus control,8,WRB,tentative
+CPU bus control,12,RAMB,readable
+CPU bus control,6,OEB,readable
+CPU bus control,11,ROMB,readable
+CPU bus control,24,BIGSPACEB,tentative
+CPU bus control,23,WEB,readable
+CPU bus control,unclear,NMIB-like label,ambiguous numeral/label
+CPU bus control,59,F2,tentative
+CPU bus control,48,RESET SYSB,tentative
+Head and sensor,24 or 29,ALM DATA CLK-like label,ambiguous numeral/label
+Head and sensor,34 or 54,F24HZ-like label,ambiguous numeral
+Head and sensor,43,ALARMB,readable
+Head and sensor,57 or 67,F4MHZ-like label,ambiguous numeral
+Head and sensor,44,POWERB,readable
+Head and sensor,45,RESET SWB,readable
+Head and sensor,36,PHOTOCELL,readable
+Body and power,26,LAMP0,readable
+Body and power,27,LAMP1,readable
+Body and power,28,LAMP2,readable
+Body and power,30,HEADLAMP,tentative
+Body and power,25,RADIOIN,readable
+Body and power,32,POWER ENABLE B,tentative
+Supply and oscillator,55,XTAL0,readable
+Supply and oscillator,56,XTAL1,readable
+Supply and oscillator,35,VDD,readable
+Supply and oscillator,1,VSS,readable
+Audio,10,AUDIOUT,readable
+Motor COP,50,COP CLK B,readable
+Motor COP,51,MOCOP DATA OUT,readable
+Motor COP,52,MOCOP DONE B,readable
+Motor COP,31,MASTER CLK,tentative
+Speech,33,SPSTARTB,tentative
+Speech,3,SPBUSYB,tentative
+Speech,38,C0,readable
+Speech,39,C1,readable
+Speech,40,C2,readable
+Speech,41,C3,readable
+Speech,42,C4,readable
+Speech,47,Speech timing net to LC8100 pin 27; label blurred,tentative
+Additional COP/control,53,COP RCLK-like label,tentative
+Additional COP/control,54,AUDIO DATA CLK-like label,tentative
+Additional COP/control,37,COPDATA,readable
+Additional COP/control,49,SPND RC-like label; diode/resistor network,tentative

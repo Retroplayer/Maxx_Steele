@@ -1,0 +1,57 @@
+Name     MAXXDEC;
+PartNo   001;
+Date     10/14/2026;
+Revision 01;
+Designer Maxx Steele cartridge project;
+Company  Retroplayer;
+Assembly Cartridge;
+Location U1;
+Device   g22v10;
+
+/* Combinational ATF22V10C-compatible decoder, 24-pin package.
+ * Inputs RD_N and WR_N MUST be confirmed active-low CPU transfer strobes.
+ * Their names do not establish that J400 OEB/WEB have those semantics.
+ * F2, BIGSPACEB, RESET SYSB and NMIB are not used by this design.
+ */
+
+PIN 1 = A15;
+PIN 2 = A14;
+PIN 3 = A13;
+PIN 4 = A12;            /* Reserved for finer decoding; currently ignored. */
+PIN 5 = RD_N;
+PIN 6 = WR_N;
+PIN 7 = ENABLE;         /* High enables cartridge; strap high normally. */
+
+/* Pins 12/24 are GND/VCC. Unused inputs 8-11 and 13 need defined levels. */
+PIN 23 = RAM_CS_N;
+PIN 22 = ROM_CS_N;
+PIN 21 = IO_CS_N;
+PIN 20 = RAM_OE_N;
+PIN 19 = RAM_WE_N;
+PIN 18 = ROM_OE_N;
+PIN 17 = IO_RD_N;
+PIN 16 = IO_WR_N;
+PIN 15 = RW;            /* Qualified R/W: high read/idle, low valid write. */
+PIN 14 = BUS_ACTIVE_N;  /* Low only for a valid selected cartridge cycle. */
+
+/* Address-only selects: 32K RAM, 8K ROM, 8K I/O. */
+RAM_CS_N = !(ENABLE & ((!A15 & (A14 # A13)) # (A15 & !A14 & !A13)));
+ROM_CS_N = !(ENABLE & A15 & !A14 & A13);
+IO_CS_N  = !(ENABLE & A15 & A14 & !A13);
+
+/* Output feedback names refer to already defined select outputs.
+ * Suppress transfers when both inputs are high OR both are low.
+ * Valid reads: RD_N=0, WR_N=1. Valid writes: RD_N=1, WR_N=0.
+ */
+RAM_OE_N = RAM_CS_N # RD_N # !WR_N;
+RAM_WE_N = RAM_CS_N # !RD_N # WR_N;
+ROM_OE_N = ROM_CS_N # RD_N # !WR_N;
+IO_RD_N  = IO_CS_N # RD_N # !WR_N;
+IO_WR_N  = IO_CS_N # !RD_N # WR_N;
+
+/* RW is meaningful as a transfer direction only while BUS_ACTIVE_N is low.
+ * It is not a reconstruction of a raw 6502 address-phase R/W signal.
+ */
+RW = !RD_N # WR_N;
+BUS_ACTIVE_N = (RAM_CS_N & ROM_CS_N & IO_CS_N) #
+               (RD_N & WR_N) # (!RD_N & !WR_N);
