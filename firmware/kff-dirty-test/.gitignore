@@ -1,0 +1,4 @@
+image.h
+build/*.elf
+build/*.map
+build/*.lst

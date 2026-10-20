@@ -1,0 +1,21 @@
+{
+  "reset_dispatch_and_display_payload": "passed",
+  "instructions_emulated": 2993,
+  "head_frame_hex": [
+    "E3",
+    "F3",
+    "60",
+    "DA",
+    "F2",
+    "66",
+    "E2"
+  ],
+  "motor_bytes": 0,
+  "ARM_vector_table": "passed",
+  "bus_loop_location": "SRAM 0x20000000",
+  "bus_loop_calls": 0,
+  "binary_sha256": "ad3669abbcfd781391c94f6609881765301bd64df86eacf3477e7c347d872114",
+  "main_rom_sha256": "f232722d4773303b3e85bf3188af936735007207de8ce5ecc739bdd7348ebecd",
+  "hardware_tested": false,
+  "timing_verified": false
+}
